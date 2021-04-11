@@ -4,15 +4,17 @@ require_once 'Vehicle.php';
 
 class Car extends Vehicle
 {
-    private string $energy;
-
-    private int $energyLevel;
+    public const ALLOWED_ENERGIES = [
+        'fuel',
+        'electric',
+    ];
+    protected string $energy;
+    protected int $energyLevel;
 
     public function __construct(string $color, int $nbSeats, string $energy)
     {
-        $this->color = $color;
-        $this->nbSeats = $nbSeats;
-        $this->energy = $energy;
+        parent::__construct($color, $nbSeats);
+        $this->setEnergy($energy);
     }
 
     public function getEnergy(): string
@@ -22,7 +24,10 @@ class Car extends Vehicle
 
     public function setEnergy(string $energy): void
     {
-        $this->energy = $energy;
+        if (in_array($energy, self::ALLOWED_ENERGIES)) {
+            $this->energy = $energy;
+        }
+        return $this;
     }
 
     public function getEnergyLevel(): int
