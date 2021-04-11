@@ -4,7 +4,7 @@ require_once "src/Bicycle.php";
 require_once "src/Cars.php";
 require_once 'src/Truck.php';
 
-$myTruck = new Truck('white', 6, 'essence', 100);
+$myTruck = new Truck('pink', 6, 'electric', 50);
 
 var_dump($bestTruck);
 
@@ -14,7 +14,7 @@ echo $myTruck->getEmptyCapacity();
 
 var_dump($myTruck);
 
-echo $myTruck->setCurrentSpeed(100) .'<br>';
+echo $myTruck->setCurrentSpeed(50) .'<br>';
 echo $myTruck->brake();
 echo $myTruck->brake() . '<br>'  ;
 
